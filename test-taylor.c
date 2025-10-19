@@ -47,7 +47,12 @@ void comparesine(double x, int n) {
     // Calculate error
     double error = fabs(sine_approx - sine_actual);
 
-    if (sine_approx>1000 || sine_approx<-1000) // Edge case allowing to show reasonalbe error but avoiding weird formatting when error gets too big
+    /*
+    // Since sine is [-1,1] any value outside is a bad approximation,
+    so to show reasonable error but avoid fomratting issue a range 
+    was chosen.
+    */
+    if (sine_approx>1000 || sine_approx<-1000) 
     {
         printf("%12.4lf | Aproximation outside of range\n", 
            x);   
@@ -65,7 +70,7 @@ void comparetable(int n){
     
     printf("\n%12s | %14s | %14s | %14s | %6s\n", 
            "X value", "Approx.", "Actual", "Error", "Terms");
-    printf("---------------------------------------------------------------\n");
+    printf("-------------------------------------------------------------------------\n");
 
    
     comparesine(4.0, n);

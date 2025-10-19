@@ -11,8 +11,12 @@ int main(void){
     u = pop(s);
     assert(v == u);
 
+    assert(empty(s));
     push(1,s);
+    assert(!empty(s));
     push(2,s);
+    assert(!empty(s));
+    assert(!full(s));
     push(3,s);
     push(4,s);
     print(s);
