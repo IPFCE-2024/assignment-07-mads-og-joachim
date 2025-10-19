@@ -22,4 +22,5 @@ int main(void){
     print(s);
 
     destroy_stack(s);
+    assert(empty(s));
 }
