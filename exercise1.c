@@ -1,25 +1,54 @@
-/*
- * Exercise 1: Taylor Series Approximation for Sine Function
- * Assignment 7 - IPFCE 2025
- * 
- * Implement the taylor_sine function that calculates the sine of x
- * using Taylor series approximation with n terms.
- * 
- * Taylor series for sin(x) = x - x^3/3! + x^5/5! - x^7/7! + ...
- */
-
+#include <stdio.h>
+#include <assert.h>
 #include "taylor_sine.h"
 
-/* 
- * Calculate sine using Taylor series approximation
- * x: input value in radians
- * n: number of terms in the series
- * Returns: approximation of sin(x)
- */
+static double fac(double x, int n);
+static double pot(double x, int n);
+
 double taylor_sine(double x, int n) {
-    // TODO: Implement the Taylor series approximation for sine
-    // Hint: The series is: x - x^3/3! + x^5/5! - x^7/7! + ...
-    // Use a loop to calculate n terms of the series
+    assert(n < 170); // Precondition
+    double result = x; // First term in the series is x
+    for (int i = 1; i < n; i++)
+    {
+        double sign = (i % 2) ? -1.0 : 1.0;
+        result += sign * pot(x,2*i+1) / fac(x,2*i+1);
+    }
     
-    return 0.0; // placeholder - replace with your implementation
+    return result; 
+}
+
+double fac(double x,int n){
+    static double result = 1;
+    static int count = 1;
+    static double last_x = 0.0;
+    if (x != last_x) {
+        result = 1.0;
+        count = 1;
+        last_x = x;
+    }
+    
+    for (int i = count; i <= n; i++) 
+    {
+        result *= i;
+        count++;
+    }
+    return result;
+}
+
+double pot(double x, int n){
+    static double result = 1.0;
+    static int count = 0;
+    static double last_x = 0.0;
+    if (x != last_x) {
+        result = 1.0;
+        count = 0;
+        last_x = x;
+    }
+
+    for (int i = count; i < n; i++)
+    {
+        result = result * x;
+        count++;
+    }
+    return result;
 }

@@ -36,4 +36,7 @@ bool empty(stack *s);
 /* Print the contents of the stack */
 void print(stack *s);
 
+/* Cleans up stack made with malloc */
+void destroy_stack(stack *s);
+
 #endif

@@ -1,13 +1,7 @@
-#ifndef _TAYLOR_SINE_H_
-#define _TAYLOR_SINE_H_
+#ifndef TAYLOR_SINE_H
+#define TAYLOR_SINE_H
 
-/*
- * Taylor series approximation for sine function
- * Exercise 1 - Assignment 7
- * 
- * TODO: Create the header file for the taylor_sine library
- * - Include necessary header files
- * - Declare the taylor_sine function
- */
+// Function prototype for taylor_sine
+double taylor_sine(double x, int n);
 
-#endif
+#endif 
