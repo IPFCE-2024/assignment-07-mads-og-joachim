@@ -16,7 +16,7 @@ double taylor_sine(double x, int n) {
 
     /*
     Ugly solution to small bug with calling function 
-    for same x twice in a row
+    for same x twice in a row, effectively just reset
     */
     pot(x-1,1); 
     fac(x-1,1);
