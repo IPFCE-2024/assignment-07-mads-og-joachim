@@ -47,7 +47,6 @@ int pop(stack *s)
 {
     /* pre-condition: stack must not be empty */
     if (empty(s)){printf("No items to pop, stack is empty"); return 0;}
-    
     assert(!empty(s));
 
     node *temp = s->head;
@@ -76,6 +75,7 @@ bool empty(stack *s)
 void print(stack *s)
 {
     /* pre-condition: true */
+
     if (empty(s)){printf("No items to print, stack is empty"); return;}
 
     node *temp = s->head;
