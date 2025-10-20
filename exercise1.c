@@ -23,4 +23,6 @@ Used to use my own function for potense and factorial
 but discovered a bug with using static variable when 
 calling with same x so swapped to the math.h functions
 for more robust implementation.
+
+Test
 */
