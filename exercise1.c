@@ -13,13 +13,21 @@ double taylor_sine(double x, int n) {
         double sign = (i % 2) ? -1.0 : 1.0;
         result += sign * pot(x,2*i+1) / fac(x,2*i+1);
     }
-    
+
+    /*
+    Ugly solution to small bug with calling function 
+    for same x twice in a row
+    */
+    pot(x-1,1); 
+    fac(x-1,1);
+
     return result; 
 }
 
 /*
-Here I could just use math.h library but I wanted to figure out 
-how static variables work so I made the functions
+I made my own power and factorial function because I wanted
+to try out static variables and avoid using math.h since it
+is what we compare it to. 
 */
 
 double fac(double x,int n){
