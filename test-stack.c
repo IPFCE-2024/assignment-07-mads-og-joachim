@@ -6,12 +6,13 @@ int main(void){
     int u, v;
 
     initialize(s);
+    // Function checks for empty as post condition so not nessecery
 
     v = 3;
     push(v,s);
     u = pop(s);
     assert(v == u);
-    printf("Test 1 succeful: Consistency through 1 push and pop");
+    printf("Test 1 succesful: Consistency through 1 push and pop\n");
 
     assert(empty(s));
     push(1,s);
@@ -22,7 +23,7 @@ int main(void){
     push(3,s);
     push(4,s);
     print(s);
-    printf("Test 2 succeful: Print works");
+    printf("Test 2 succesful: Print works\n");
 
     int v0 = 3;
     int v1 = 2;
@@ -30,12 +31,10 @@ int main(void){
     push(v1,s);
     int u0 = pop(s);
     int u1 = pop(s);
-    printf("Test 3 succeful: 2 push then pop");
 
     assert(v0 == u1);
     assert(v1 == u0);
-
-    assert(v == u);
+    printf("Test 3 succesful: 2 push then pop\n");
 
     destroy_stack(s);
     assert(empty(s));
